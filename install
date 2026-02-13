@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# microdnf update
+# rpm -qa | sort > before.txt
+# microdnf install -y gcc
+# rpm -qa | sort > after.txt
+
+pip install -U pip
+
+# pip install speciesnet # slow and causes dependency resolution errors
+# uv installs much faster than pip!
+pip install uv
+uv pip install . --system
+
+echo 'Warmup run on lambda...'
+python lambda_function.py # just to warm up the cache for future speciesnet invocations
+
+# pip install uv
+# # uv sync # lambda_handler is not run with pip
+# # uv lock
+# uv export --no-build --format requirements.txt > requirements.txt
+# # pip install -r requirements.txt
+# uv pip install --system -r requirements.txt
+
+# microdnf remove -y $(comm -13 before.txt after.txt)
+# microdnf clean all
+# rm before.txt after.txt
+
+# DST_DIR="$(python -c 'import site; print(site.getusersitepackages())')"
+# mkdir -p $DST_DIR # may not exist if no user packages yet
+
+# mv layer/** $DST_DIR
+
+# # echo listing $DST_DIR
+# # ls -A $DST_DIR
+
+# rmdir layer
+# # rm layer.zip
