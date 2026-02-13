@@ -10,14 +10,5 @@ dependencies = [
 	"setuptools<81.0.0",
 ]
 
-# dependencies = ["speciesnet>=4.0.0"]
-
 [tool.uv]
-# resolution = "lowest-direct"
 exclude-dependencies = ["opencv-python"]
-# no-build = true
-# environments = ["sys_platform == 'linux' and platform_machine == 'arm64'"]
-# override-dependencies = ["opencv-python-headless"]
-
-# [tool.uv.sources]
-# opencv-python = { package = "opencv-python-headless" }
