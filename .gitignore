@@ -12,3 +12,4 @@ wheels/
 .*
 !.git*
 !.env.example
+!.env.public

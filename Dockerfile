@@ -7,7 +7,8 @@ WORKDIR ${LAMBDA_TASK_ROOT}
 #  to place somewhere that is accessible by sbx_user1051.
 ENV KAGGLEHUB_CACHE='/opt/.cache/kagglehub'
 
-COPY pyproject.toml test.png install lambda_function.py ${LAMBDA_TASK_ROOT}
+COPY .env .env.public pyproject.toml install lambda_function.py model.py ${LAMBDA_TASK_ROOT}
+COPY lib ${LAMBDA_TASK_ROOT}/lib
 
 RUN ${LAMBDA_TASK_ROOT}/install
 

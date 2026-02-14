@@ -8,6 +8,10 @@ dependencies = [
 	"speciesnet>=5.0.3",
 	"opencv-python-headless",
 	"setuptools<81.0.0",
+	"python-dotenv",
+	"boto3",
+	"boto3-stubs[lambda]",
+	"boto3-stubs[s3]",
 ]
 
 [tool.uv]

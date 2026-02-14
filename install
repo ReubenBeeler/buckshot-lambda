@@ -5,5 +5,5 @@ pip install -U pip
 pip install uv
 uv pip install . --system
 
-echo 'Warmup run on lambda...'
-python lambda_function.py # just to warm up the KAGGLEHUB_CACHE for future speciesnet invocations
+echo 'Creating the model cache...'
+python model.py
